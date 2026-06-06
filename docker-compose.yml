@@ -6,6 +6,6 @@ services:
     container_name: formio-web
     restart: always
     ports:
-      - "80:80"
+      - "8005:80"
     environment:
       - NODE_ENV=production
