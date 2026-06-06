@@ -20,20 +20,12 @@ FROM node:22-alpine
 
 WORKDIR /app
 
-# Copy package.json and lockfile
-COPY package*.json ./
+# We don't even need node_modules because Nitro builds a standalone server!
+COPY --from=builder /app/.output ./.output
 
-# Install ONLY production dependencies and vite
-RUN npm install --production && npm install vite
-
-# Copy the built assets
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/vite.config.ts ./vite.config.ts
-COPY --from=builder /app/tsconfig.json ./tsconfig.json
-COPY --from=builder /app/src ./src
-
-# Expose port 3000
+# Expose the port Nitro binds to (usually 3000, determined by PORT env variable)
+ENV PORT=3000
 EXPOSE 3000
 
-# Start Vite preview
-CMD ["npx", "vite", "preview", "--port", "3000", "--host", "0.0.0.0"]
+# Start Nitro server
+CMD ["node", ".output/server/index.mjs"]
