@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  formio-web:
+    build: .
+    container_name: formio-web
+    restart: always
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production
