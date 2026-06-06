@@ -1,4 +1,4 @@
-# Stage 1: Build the application
+# Build the application
 FROM node:20-alpine AS builder
 
 WORKDIR /app
@@ -15,17 +15,24 @@ COPY . .
 # Build the application
 RUN npm run build
 
-# Stage 2: Serve the application with Nginx
-FROM nginx:alpine
+# Serve the application
+FROM node:20-alpine
 
-# Copy the custom nginx configuration
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+WORKDIR /app
 
-# Copy the built assets from the builder stage
-COPY --from=builder /app/dist/client /usr/share/nginx/html
+# Copy package.json and lockfile
+COPY package*.json ./
 
-# Expose port 80
-EXPOSE 80
+# Install ONLY production dependencies and vite
+RUN npm install --production && npm install vite
 
-# Start Nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Copy the built assets
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/vite.config.ts ./vite.config.ts
+COPY --from=builder /app/tsconfig.json ./tsconfig.json
+
+# Expose port 3000
+EXPOSE 3000
+
+# Start Vite preview
+CMD ["npx", "vite", "preview", "--port", "3000", "--host", "0.0.0.0"]
