@@ -16,20 +16,20 @@ export function Logo({ className = "", variant = "dark", stacked = false }: Logo
           </linearGradient>
         </defs>
         <path 
-          d="M 25 90 L 25 35 C 25 15, 45 10, 85 10 C 70 20, 50 20, 42 25 L 42 45 C 55 42, 65 42, 75 40 C 60 48, 50 48, 42 50 L 42 80 C 42 88, 35 90, 25 90 Z" 
+          d="M 25 85 L 25 35 C 25 10, 60 10, 85 15 C 60 25, 40 25, 40 35 L 40 50 C 50 50, 60 48, 70 48 C 60 55, 50 55, 40 55 L 40 80 Z" 
           fill="url(#gold-grad)" 
         />
       </svg>
       <div className={`flex flex-col ${stacked ? "items-center text-center mt-4" : "items-start justify-center"}`}>
         <span
           className="logo-title text-display"
-          style={{ fontSize: stacked ? "2rem" : "1.2rem", letterSpacing: "0.22em", fontWeight: 400, fontFamily: "Playfair Display, serif" }}
+          style={{ fontSize: stacked ? "2rem" : "1.2rem", letterSpacing: "0.15em", fontWeight: 500, fontFamily: "Playfair Display, serif" }}
         >
           FORMIO
         </span>
         <span
           className="logo-subtitle"
-          style={{ fontSize: stacked ? "0.6rem" : "0.45rem", letterSpacing: "0.25em", fontWeight: 400, fontFamily: "Inter, sans-serif", marginTop: stacked ? "0.4rem" : "0.1rem", opacity: 0.8 }}
+          style={{ fontSize: stacked ? "0.7rem" : "0.5rem", letterSpacing: "0.2em", fontWeight: 500, fontFamily: "Inter, sans-serif", marginTop: stacked ? "0.5rem" : "0.1rem", opacity: 0.9 }}
         >
           FURNITURE & HOME DECOR
         </span>
