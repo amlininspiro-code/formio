@@ -13,7 +13,7 @@ export function Footer() {
       <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-16">
         <div className="grid gap-16 md:grid-cols-12">
           <div className="md:col-span-4">
-            <Logo variant="light" />
+            <Logo variant="light" scale={1} />
             <p className="mt-8 max-w-xs text-sm leading-relaxed text-background/60">
               A modern furniture house designing pieces that quietly elevate everyday life.
             </p>

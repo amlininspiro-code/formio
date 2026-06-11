@@ -118,11 +118,10 @@ export function Entrance() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
-            className="[&_*]:!text-white [&_svg]:!text-[var(--color-gold)]"
           >
-            <Logo 
-              stacked
-              className="!gap-2 [&_.logo-title]:!text-[clamp(3rem,11vw,8rem)] [&_.logo-icon]:!h-[clamp(80px,16vw,140px)] [&_.logo-icon]:!w-[clamp(80px,16vw,140px)] [&_.logo-subtitle]:!text-[clamp(0.6rem,2vw,1.4rem)] [&_.logo-subtitle]:!mt-4" 
+            <Logo
+              variant="light"
+              scale={4}
             />
           </motion.div>
 
