@@ -21,7 +21,7 @@ export function Nav() {
       }}
     >
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-5 md:px-10">
-        <Logo scale={0.9} variant={scrolled ? "dark" : "light"} />
+        <Logo scale={0.72} compact variant={scrolled ? "dark" : "light"} />
         <nav className="hidden items-center gap-10 text-[11px] uppercase tracking-[0.28em] text-foreground/70 md:flex">
           {["Living", "Dining", "Bedroom", "Decor", "Atelier"].map((l) => (
             <a key={l} href={`#${l.toLowerCase()}`} className="transition-colors hover:text-[var(--color-gold)]">

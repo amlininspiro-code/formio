@@ -119,10 +119,7 @@ export function Entrance() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            <Logo
-              variant="light"
-              scale={4}
-            />
+            <Logo variant="light" scale={5} />
           </motion.div>
 
           <motion.h1
